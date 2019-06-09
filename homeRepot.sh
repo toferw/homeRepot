@@ -17,8 +17,8 @@ else
 		#echo "Dirname: $DIRNAME"
 		BACKUPDIR=.homeRepotInstallBackup/$DIRNAME
 		#echo "Backupdir: $BACKUPDIR"
-		mkdir -p $BACKUPDIR
-		mv $FILE $BACKUPDIR
+		mkdir -pv $BACKUPDIR
+		mv -v $FILE $BACKUPDIR
 	done
 fi;
 homeRepot checkout
