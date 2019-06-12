@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone --bare --recurse-submodules $1 $HOME/.homeRepot
+git clone --bare $1 $HOME/.homeRepot
 function homeRepot {
 	/usr/bin/git --git-dir=$HOME/.homeRepot --work-tree=$HOME $@
 }
