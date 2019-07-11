@@ -7,6 +7,9 @@ function homeRepot {
 homeRepot checkout
 if [ $? = 0 ]; then
 	echo "Checked out homeRepot.";
+	homeRepot submodule init
+	homeRepot submodule update
+	homeRepot config --local status.showUntrackedFiles no
 else
 	echo "Backing up pre-existing dot files.";
 	FILES=`homeRepot checkout 2>&1 | egrep "^\s+.+" | awk {'print $1'}`
@@ -24,10 +27,10 @@ else
 	homeRepot checkout
 	if [ $? = 0 ]; then
 		echo "Checked out homeRepot.";
+		homeRepot submodule init
+		homeRepot submodule update
+		homeRepot config --local status.showUntrackedFiles no
 	else
 		echo "Things went horribly, horribly wrong...";
 	fi;
-homeRepot submodule init
-homeRepot submodule update
-homeRepot config --local status.showUntrackedFiles no
 fi;
